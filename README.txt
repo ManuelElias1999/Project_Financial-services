@@ -1,28 +1,30 @@
-REMIX DEFAULT WORKSPACE
+# Fungible Token Contract
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+This Solidity smart contract implements a basic fungible token, which means it is interchangeable and does not have a unique value.
 
-This workspace contains 3 directories:
+## Description
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+The `TokenBasic` contract allows users to manage and transfer tokens on the Ethereum blockchain. It supports functionalities such as checking balances, transferring tokens between accounts, and approving other accounts to spend tokens on behalf of the owner.
 
-SCRIPTS
+## Contract Details
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+- **Name**: PichulaCoin
+- **Symbol**: PCN (3 to 5 characters)
+- **Decimals**: 18 (balances can be written with up to 18 decimal places)
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+## Core Features
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+- **Total Supply**: Tracks the total number of tokens available for distribution.
+- **Balance Tracking**: Maps addresses to their token balances.
+- **Transfer**: Allows users to transfer tokens to other addresses.
+- **Approval**: Enables an address to approve another address to spend a certain amount of tokens on its behalf.
+- **Allowance**: Checks the remaining tokens that a spender is allowed to spend on behalf of an owner.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+## Usage
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+1. **Deployment**: Deploy the contract on the Ethereum network, specifying the total supply of tokens.
+2. **Token Interaction**: Users can interact with the contract to check balances, transfer tokens, and approve spending.
+3. **Token Transfer**: Transfer tokens between addresses using the `transfer` function.
+4. **Approval Mechanism**: Approve other addresses to spend tokens on your behalf using the `approve` function.
+5. **Token Spending**: Spend approved tokens using the `transferFrom` function.
+
